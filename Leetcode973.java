@@ -3,6 +3,7 @@
 
 import java.util.PriorityQueue;
 import java.util.Collections;
+import java.util.HashMap;
 
 public class Leetcode973{
     public static void main(String[] args) {
@@ -20,6 +21,8 @@ public class Leetcode973{
 
     }
     
+
+    // By me 
     static int[][] kClosest(int[][] points, int k) {
         PriorityQueue<Point> queue = new PriorityQueue<>(Collections.reverseOrder());
         for(int i=0;i<points.length;i++){
@@ -34,6 +37,28 @@ public class Leetcode973{
             Point p = queue.remove();
             ans[i++] = points[p.idx];
         }
+        return ans;
+    }
+
+    // it can be improve
+    static int[][] kClosest1(int[][] points, int k) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        HashMap<Integer,int[]> map = new HashMap<>();
+        
+        for(int[] arr : points){
+            int dist = arr[0]*arr[0] + arr[1]*arr[1];
+            queue.add(dist);
+            map.put(dist, arr);
+
+            if(queue.size()>k)queue.remove();
+        }
+
+        int[][] ans = new int[queue.size()][2];
+        int i = 0;
+        while(queue.size() != 0){
+            ans[i++] = map.get(queue.remove());
+        }
+
         return ans;
     }
 }
