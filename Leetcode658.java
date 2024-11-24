@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.PriorityQueue;
 
 class Leetcode658 {
     public static void main(String[] args) {
@@ -33,9 +35,9 @@ class Leetcode658 {
         // int x = -1;
 
 
-        // int[] arr = {10, 20, 30, 40, 50};
-        // int k = 3;
-        // int x = 35;
+        int[] arr = {10, 20, 30, 40, 50};
+        int k = 3;
+        int x = 35;
 
 
         // int[] arr = {1,1,1,10,10,10};
@@ -43,14 +45,33 @@ class Leetcode658 {
         // int x = 9;
 
 
-        int[] arr = {1,25,35,45,50,59};
-        int k = 1;
-        int x = 30;
+        // int[] arr = {1,25,35,45,50,59};
+        // int k = 1;
+        // int x = 30;
 
 
-        ArrayList<Integer> list = findClosestElements(arr, k, x);
+        ArrayList<Integer> list = findClosestElements1(arr, k, x);
         System.out.println("answer is : " + list);
     }  
+
+    static ArrayList<Integer> findClosestElements1(int[] arr,int k,int x){
+        PriorityQueue<Pair> queue = new PriorityQueue<>(Collections.reverseOrder());
+        
+        for(int item : arr){
+            int diff = Math.abs(x - item);
+            queue.add(new Pair(diff, item));
+            if(queue.size()>k)queue.remove();
+        }
+        
+        ArrayList<Integer> list = new ArrayList<>();
+        while(queue.size() != 0){
+            list.add(queue.remove().ele);
+        }
+
+        Collections.sort(list);
+        return list;
+    }
+
     
     static ArrayList<Integer> findClosestElements(int[] arr, int k, int x) {
         int l = 0,r = arr.length-1;
@@ -93,6 +114,23 @@ class Leetcode658 {
         }
 
         return list;
+    }
+
+}
+
+
+class Pair implements Comparable<Pair>{
+    Integer diff;
+    Integer ele;
+
+    Pair(int diff,int ele){
+        this.diff = diff;
+        this.ele = ele;
+    }
+
+    public int compareTo(Pair pair){
+        if(this.diff == pair.diff)return this.ele - pair.ele;
+        return this.diff - pair.diff;
     }
 
 }
