@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 class Leetcode78 {
@@ -12,15 +13,28 @@ class Leetcode78 {
     
 
     static List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-           
-        ArrayList<Integer> numbers = new ArrayList<>();
-        for(int num : nums){
-            numbers.add(num);
-        }
+        HashSet<ArrayList<Integer>> list = new HashSet<>();
+        ArrayList<Integer> temp = new ArrayList<>();
+        for(int nm : nums)temp.add(nm);
 
-        list.add(new ArrayList<>());
-        return list;
+        helper(0,temp,list);
+
+        List<List<Integer>> ans = new ArrayList<>(list);
+        return ans;
+    }
+
+    private static void helper(int x,ArrayList<Integer> temp, HashSet<ArrayList<Integer>> list){
+        if(list.size() <= 0 || x >= temp.size())return;
+
+        ArrayList<Integer> l = new ArrayList<>();
+        Integer current = temp.remove(x);
+        l.add(current);
+        list.add(l);
+
+        list.add(temp);
+        helper(x+1,temp, list);
+
+        temp.add(current);
     }
 
     
