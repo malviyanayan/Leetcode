@@ -1,1 +1,1 @@
-o.dist
+arr
