@@ -5,11 +5,11 @@ class Leetcode143{
 
     }
 
-    static void reorderList(ListNode head) {
-        TreeMap<Integer,ListNode> map = new TreeMap<>();
+    static void reorderList(Listcode head) {
+        TreeMap<Integer,Listcode> map = new TreeMap<>();
         int size = 1;
 
-        ListNode temp = head;
+        Listcode temp = head;
         while(temp != null){
             size ++;
             temp =temp.next;
@@ -41,7 +41,7 @@ class Leetcode143{
 
     }
 
-    static ListNode goNode(int pos,ListNode head){
+    static Listcode goNode(int pos,Listcode head){
         int count = 1;
         while(head != null && count != pos){
             count ++;
@@ -53,8 +53,8 @@ class Leetcode143{
 
 class ListNode {
     int val;
-    ListNode next;
+    Listcode next;
     ListNode() {}
     ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    ListNode(int val, Listcode next) { this.val = val; this.next = next; }
 }
