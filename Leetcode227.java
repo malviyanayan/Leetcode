@@ -67,3 +67,4 @@ class Leetcode227 {
         return result;
     }
 }
+
