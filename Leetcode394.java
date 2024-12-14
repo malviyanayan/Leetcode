@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class Leetcode394 {
     public static void main(String[] args) {
         // String str = "3[a]2[bc]";
@@ -93,5 +95,34 @@ public class Leetcode394 {
         // System.out.println(i);
         // System.out.println(sb.length());
         helper(sb, i);
+    }
+
+    static String decodeString1(String s) {
+        Stack<String> stringStack = new Stack<>(); //
+        Stack<Integer> countStack = new Stack<>(); 
+        String currentString = ""; 
+        int currentNumber = 0; 
+
+        for (char ch : s.toCharArray()) {
+            if (Character.isDigit(ch)) { 
+                currentNumber = currentNumber * 10 + (ch - '0');
+            } else if (ch == '[') { 
+                countStack.push(currentNumber); 
+                stringStack.push(currentString); 
+                currentString = ""; 
+                currentNumber = 0; 
+            } else if (ch == ']') { 
+                int repeatCount = countStack.pop(); 
+                StringBuilder temp = new StringBuilder(stringStack.pop()); 
+                for (int i = 0; i < repeatCount; i++) {
+                    temp.append(currentString); 
+                }
+                currentString = temp.toString(); 
+            } else { 
+                currentString += ch;
+            }
+        }
+
+        return currentString;
     }
 }
