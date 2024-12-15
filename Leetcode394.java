@@ -98,6 +98,7 @@ public class Leetcode394 {
     }
 
     static String decodeString1(String s) {
+        // this code is from chatgpt
         Stack<String> stringStack = new Stack<>(); //
         Stack<Integer> countStack = new Stack<>(); 
         String currentString = ""; 
