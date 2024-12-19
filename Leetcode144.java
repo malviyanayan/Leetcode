@@ -8,6 +8,8 @@ class Leetcode144{
         
     }
 
+
+    // Preorder traversal
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         dfs(root, result);
