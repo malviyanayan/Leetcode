@@ -34,7 +34,7 @@ class Leetcode2487{
         return reverseList(dummy.next);
     }
 
-    // Helper function to reverse a linked list
+    
     static ListNode reverseList(ListNode head) {
         ListNode prev = null, curr = head;
         while (curr != null) {
