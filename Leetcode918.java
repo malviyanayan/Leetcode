@@ -6,31 +6,18 @@ class Leetcode918{
     }
 
     static int maxSubarraySumCircular(int[] nums) {
-        int[] temp = new int[nums.length];
-        for(int i=0;i<nums.length;i++){
-            temp[i] = maxSum(i,nums);
+        int global = nums[0];
+        int current = nums[0];
+        
+        for(int i=1;i<nums.length;i++){
+            current = Math.max(nums[0],nums[0]+current);
+            global = Math.max(global,current);
         }
 
-        int max = Integer.MIN_VALUE;
-        for(int i=0;i<temp.length;i++){
-            if(temp[i]>max)max = temp[i];
-        }
-        return max;
+        return global;
     }
 
-    private static int maxSum(int x,int[] nums){
-        int l = nums.length;
-        int max = nums[x];
-        for(int i=x+1;i<l;i++){
-            if(nums[i]+max > max)max = nums[i] + max;
-        }
-
-        for(int i=0;i<x;i++){
-            if(nums[i]+max > max)max = nums[i] + max;
-        }
-
-        return max;
-    }
+    
 
 
 
