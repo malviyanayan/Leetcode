@@ -1,1 +1,1 @@
-sb
+(temp = temp + divisor) <= dividend
