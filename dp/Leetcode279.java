@@ -1,22 +1,30 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class Leetcode279 {
 
-    public int numSquares(int n) {
-        return helper(n);
-    }
+    static Map<Integer, Integer> memo = new HashMap<>();
 
-    static int helper(int n){
-        if(n/n == 1)return 1;
+    static int numSquares(int n) {
+        if (n < 1) return 0;
+        if (memo.containsKey(n)) return memo.get(n);
+
+        int x = (int)Math.sqrt(n);
+        if (x * x == n) return 1;
 
         int min = Integer.MAX_VALUE;
-        for(int i=1;i<=n;i++){
-            min = Math.min(min,1 + helper(min - i));
+        for (int i = 1; i * i <= n; i++) {
+            min = Math.min(min, numSquares(n - i * i) + 1);
         }
 
+        memo.put(n, min);
         return min;
     }
 
+    
 
     public static void main(String[] args){
-        
+        int x = 12;
+        System.out.println("Squeres is : " + numSquares(x));
     }    
 }
