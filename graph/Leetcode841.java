@@ -4,6 +4,29 @@ import java.util.Queue;
 
 class Leetcode841 {
 
+
+    // ######### using dfs ################
+
+    public boolean canVisitAllRooms1(List<List<Integer>> rooms) {
+
+        boolean[] visited = new boolean[rooms.size()];
+        dfs(0,rooms,visited);
+        for (boolean b : visited)if(!b)return false;
+        return true;
+    }
+
+    static void dfs(int i,List<List<Integer>> rooms,boolean[] visited){
+        if(visited[i])return;
+        visited[i] = true;
+        for(int temp : rooms.get(i)){
+            dfs(temp, rooms, visited);
+        }
+    }
+
+    // ####################################
+
+
+
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
 
         Queue<Integer> queue = new LinkedList<>();
