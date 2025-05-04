@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 class Leetcode1128 {
     public int numEquivDominoPairs(int[][] dominoes) {
         int count = 0;
