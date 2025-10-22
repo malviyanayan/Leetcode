@@ -1,20 +1,17 @@
 <div align="center">
 
-# 🧠 LeetCode Java Solutions
-
-### Organized by Topic | Clean | Beginner-Friendly | Consistent
+# 🧠 LeetCode Java Solutions  
+### Organized by Topic | Clean | Beginner-Friendly | Consistent  
 
 </div>
 
-## 📘 Introduction
-
+## 📘 Introduction  
 This repository contains my **LeetCode problem solutions** written in **Java**, neatly organized by topic such as Arrays, Strings, Dynamic Programming, DFS, BFS, and more.  
 Each folder includes well-structured `.java` files that demonstrate clean code practices, optimal solutions, and detailed problem categorization — making it easy to navigate and learn.
 
 ---
 
-## 📂 Folder Structure
-
+## 📂 Folder Structure  
 Leetcode/
 ├── arrays/
 │ ├── Leetcode1.java
@@ -41,12 +38,11 @@ Each folder name represents a **topic**, and every file corresponds to a **speci
 
 ---
 
-## 💻 Example Problem — _Leetcode733.java_
-
+## 💻 Example Problem — *Leetcode733.java*  
 **Problem:** Flood Fill  
-**Topic:** DFS
+**Topic:** DFS  
 
-````java
+```java
 class Solution {
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
         if (image[sr][sc] == newColor) return image;
@@ -105,4 +101,3 @@ Software Developer | Java & React Enthusiast
 ⭐ If you find this repository useful, consider giving it a star! ⭐
 
 </div> ```
-````
