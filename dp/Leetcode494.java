@@ -2,7 +2,26 @@ import java.util.Arrays;
 
 class Leetcode494{
 
+    // -------------- # Date - 24/10/2025 #--------------
+
+    // public int findTargetSumWays(int[] nums, int target) {
+    //     int[] dp = new int[nums.length+1];
+
+    //     return helper(nums, target, 0, dp);
+    // }
+
+    // private static int helper(int[] nums, int target, int i, int[] dp){
+    //     if(i == nums.length)return target == 0 ? 1 : 0;
+    //     return dp[i] = helper(nums, target - nums[i], i+1, dp) + helper(nums, target + nums[i], i+1, dp);
+    // }
+
+
+
+    // -- old solution
+
     private static int sum = 0;
+
+
 
     public int findTargetSumWays(int[] nums, int target) {
         for(int i : nums){
